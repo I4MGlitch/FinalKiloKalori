@@ -23,7 +23,7 @@ app.use(cors());
 app.use(compression());
 app.use(parser.json({ limit: '50mb' }));
 
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = 'mongodb+srv://theonlykkal:myonlykkal@kilokalori.unpxl.mongodb.net/KiloKalori';
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -34,9 +34,9 @@ const { v2: cloudinary } = require("cloudinary");
 
 // Configure Cloudinary
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloud_name: "dtebpcvwf",
+  api_key: "234759186455598",
+  api_secret: "D-E5KiHcRnsHJkJtL6Pn5w2HgNM",
 });
 
 app.post("/images", upload.single("image"), async (req, res) => {
