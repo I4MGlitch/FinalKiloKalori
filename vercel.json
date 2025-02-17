@@ -1,12 +1,10 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "backend/index.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "dist/kilokalori/**/*",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist/kilokalori" }
     }
   ],
   "routes": [
@@ -16,7 +14,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/kilokalori/$1"
+      "dest": "/dist/kilokalori/index.html"
     }
   ]
 }
