@@ -39,7 +39,7 @@ cloudinary.config({
   api_secret: "D-E5KiHcRnsHJkJtL6Pn5w2HgNM",
 });
 
-app.post("/images", upload.single("image"), async (req, res) => {
+app.post("/api/images", upload.single("image"), async (req, res) => {
   try {
     const { category } = req.body;
 
@@ -69,7 +69,7 @@ app.post("/images", upload.single("image"), async (req, res) => {
   }
 });
 
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
 
 
@@ -116,7 +116,7 @@ app.get('/api/articles', async (req, res) => {
 });
 
 
-app.post("/articles", upload.single("image"), async (req, res) => {
+app.post("/api/articles", upload.single("image"), async (req, res) => {
   try {
     const { title, description } = req.body;
 
@@ -153,7 +153,7 @@ app.post("/articles", upload.single("image"), async (req, res) => {
   }
 });
 
-app.get('/articles/latest', async (req, res) => {
+app.get('/api/articles/latest', async (req, res) => {
   try {
     const articles = await article.find().sort({ _id: -1 }).limit(3);
     res.json(articles);
@@ -162,7 +162,7 @@ app.get('/articles/latest', async (req, res) => {
   }
 });
 
-app.get('/articles/all', async (req, res) => {
+app.get('/api/articles/all', async (req, res) => {
   try {
     const page = Math.max(1, parseInt(req.query.page) || 1);
     const pageSize = Math.max(1, parseInt(req.query.pageSize) || 100);
@@ -179,7 +179,7 @@ app.get('/articles/all', async (req, res) => {
   }
 });
 
-app.get('/articles/:id', async (req, res) => {
+app.get('/api/articles/:id', async (req, res) => {
   try {
     const singleArticle = await article.findById(req.params.id);
     if (!singleArticle) return res.status(404).json({ message: 'Article not found' });
@@ -189,7 +189,7 @@ app.get('/articles/:id', async (req, res) => {
   }
 });
 
-app.delete('/articles/:id', async (req, res) => {
+app.delete('/api/articles/:id', async (req, res) => {
   try {
     const articles = await article.findById(req.params.id);
     if (!articles) {
@@ -209,7 +209,7 @@ app.delete('/articles/:id', async (req, res) => {
   }
 });
 
-app.post('/bentocakes', async (req, res) => {
+app.post('/api/bentocakes', async (req, res) => {
   try {
     const { flavor, price, size, category } = req.body;
     const newBentoCake = new bentocake({ flavor, price, size, category });
@@ -220,7 +220,7 @@ app.post('/bentocakes', async (req, res) => {
   }
 });
 
-app.get('/bentocakes/:id', async (req, res) => {
+app.get('/api/bentocakes/:id', async (req, res) => {
   try {
     const bentoCake = await bentocake.findById(req.params.id);
     if (!bentoCake) return res.status(404).json({ message: 'Bento cake not found' });
@@ -230,7 +230,7 @@ app.get('/bentocakes/:id', async (req, res) => {
   }
 });
 
-app.get('/bentocakes', async (req, res) => {
+app.get('/api/bentocakes', async (req, res) => {
   try {
     const bentoCakes = await bentocake.find();
     res.json(bentoCakes);
@@ -239,7 +239,7 @@ app.get('/bentocakes', async (req, res) => {
   }
 });
 
-app.get('/bentocakes/latest', async (req, res) => {
+app.get('/api/bentocakes/latest', async (req, res) => {
   try {
     const bentoCakes = await bentocake.find().sort({ _id: -1 }).limit(3);
     res.json(bentoCakes);
@@ -248,7 +248,7 @@ app.get('/bentocakes/latest', async (req, res) => {
   }
 });
 
-app.delete('/bentocakes/:id', async (req, res) => {
+app.delete('/api/bentocakes/:id', async (req, res) => {
   try {
     const deletedBentoCake = await bentocake.findByIdAndDelete(req.params.id);
     if (!deletedBentoCake) return res.status(404).json({ message: 'Bento cake not found' });
@@ -258,7 +258,7 @@ app.delete('/bentocakes/:id', async (req, res) => {
   }
 });
 
-app.post('/donuts', async (req, res) => {
+app.post('/api/donuts', async (req, res) => {
   try {
     const { name, price, category } = req.body;
     const newDonut = new donut({ name, price, category });
@@ -269,7 +269,7 @@ app.post('/donuts', async (req, res) => {
   }
 });
 
-app.get('/donuts/:id', async (req, res) => {
+app.get('/api/donuts/:id', async (req, res) => {
   try {
     const donut = await donut.findById(req.params.id);
     if (!donut) return res.status(404).json({ message: 'Donut not found' });
@@ -279,7 +279,7 @@ app.get('/donuts/:id', async (req, res) => {
   }
 });
 
-app.get('/donuts', async (req, res) => {
+app.get('/api/donuts', async (req, res) => {
   try {
     const donuts = await donut.find();
     res.json(donuts);
@@ -288,7 +288,7 @@ app.get('/donuts', async (req, res) => {
   }
 });
 
-app.get('/donuts/latest', async (req, res) => {
+app.get('/api/donuts/latest', async (req, res) => {
   try {
     const donuts = await donut.find().sort({ _id: -1 }).limit(3);
     res.json(donuts);
@@ -297,7 +297,7 @@ app.get('/donuts/latest', async (req, res) => {
   }
 });
 
-app.delete('/donuts/:id', async (req, res) => {
+app.delete('/api/donuts/:id', async (req, res) => {
   try {
     const deletedDonut = await donut.findByIdAndDelete(req.params.id);
     if (!deletedDonut) return res.status(404).json({ message: 'Donut not found' });
@@ -307,7 +307,7 @@ app.delete('/donuts/:id', async (req, res) => {
   }
 });
 
-app.get('/images/:id', async (req, res) => {
+app.get('/api/images/:id', async (req, res) => {
   try {
     const image = await image.findById(req.params.id);
     if (!image) return res.status(404).json({ message: 'Image not found' });
@@ -399,7 +399,7 @@ app.get('/api/images/all/tiramisu', async (req, res) => {
 });
 
 
-app.delete('/images/:id', async (req, res) => {
+app.delete('/api/images/:id', async (req, res) => {
   try {
     // Find the image in MongoDB
     const deletedImage = await image.findById(req.params.id);
@@ -422,7 +422,7 @@ app.delete('/images/:id', async (req, res) => {
   }
 });
 
-app.post('/tiramisu', async (req, res) => {
+app.post('/api/tiramisu', async (req, res) => {
   try {
     const { name, price, category } = req.body;
     const newTiramisu = new tiramisu({ name, price, category });
@@ -433,7 +433,7 @@ app.post('/tiramisu', async (req, res) => {
   }
 });
 
-app.get('/tiramisu/:id', async (req, res) => {
+app.get('/api/tiramisu/:id', async (req, res) => {
   try {
     const tiramisu = await tiramisu.findById(req.params.id);
     if (!tiramisu) return res.status(404).json({ message: 'Tiramisu not found' });
@@ -443,7 +443,7 @@ app.get('/tiramisu/:id', async (req, res) => {
   }
 });
 
-app.get('/tiramisu', async (req, res) => {
+app.get('/api/tiramisu', async (req, res) => {
   try {
     const tiramisus = await tiramisu.find();
     res.json(tiramisus);
@@ -452,7 +452,7 @@ app.get('/tiramisu', async (req, res) => {
   }
 });
 
-app.get('/tiramisu/latest', async (req, res) => {
+app.get('/api/tiramisu/latest', async (req, res) => {
   try {
     const tiramisus = await tiramisu.find().sort({ _id: -1 }).limit(3);
     res.json(tiramisus);
@@ -461,7 +461,7 @@ app.get('/tiramisu/latest', async (req, res) => {
   }
 });
 
-app.delete('/tiramisu/:id', async (req, res) => {
+app.delete('/api/tiramisu/:id', async (req, res) => {
   try {
     const deletedTiramisu = await tiramisu.findByIdAndDelete(req.params.id);
     if (!deletedTiramisu) return res.status(404).json({ message: 'Tiramisu not found' });
@@ -471,7 +471,7 @@ app.delete('/tiramisu/:id', async (req, res) => {
   }
 });
 
-app.get('/api/website', async (req, res) => {
+app.get('/api/api/website', async (req, res) => {
   try {
     const newwebsite = await website.findOne();
     res.json(newwebsite);
@@ -480,7 +480,7 @@ app.get('/api/website', async (req, res) => {
   }
 });
 
-app.put('/website', async (req, res) => {
+app.put('/api/website', async (req, res) => {
   try {
     const { aboutus, whatsapp, alamat, linkmap, facebook, instagram, tiktok } = req.body;
 
@@ -517,7 +517,7 @@ app.put('/website', async (req, res) => {
   }
 });
 
-app.post('/wholecake', async (req, res) => {
+app.post('/api/wholecake', async (req, res) => {
   try {
     const { flavor, price, size, category } = req.body;
     const newWholecake = new wholecake({ flavor, price, size, category });
@@ -528,7 +528,7 @@ app.post('/wholecake', async (req, res) => {
   }
 });
 
-app.get('/wholecake/:id', async (req, res) => {
+app.get('/api/wholecake/:id', async (req, res) => {
   try {
     const wholecake = await wholecake.findById(req.params.id);
     if (!wholecake) return res.status(404).json({ message: 'Wholecake not found' });
@@ -538,7 +538,7 @@ app.get('/wholecake/:id', async (req, res) => {
   }
 });
 
-app.get('/wholecake', async (req, res) => {
+app.get('/api/wholecake', async (req, res) => {
   try {
     const wholecakes = await wholecake.find();
     res.json(wholecakes);
@@ -547,7 +547,7 @@ app.get('/wholecake', async (req, res) => {
   }
 });
 
-app.get('/wholecake/latest', async (req, res) => {
+app.get('/api/wholecake/latest', async (req, res) => {
   try {
     const wholecakes = await wholecake.find().sort({ _id: -1 }).limit(3);
     res.json(wholecakes);
@@ -556,7 +556,7 @@ app.get('/wholecake/latest', async (req, res) => {
   }
 });
 
-app.delete('/wholecake/:id', async (req, res) => {
+app.delete('/api/wholecake/:id', async (req, res) => {
   try {
     const deletedWholecake = await wholecake.findByIdAndDelete(req.params.id);
     if (!deletedWholecake) return res.status(404).json({ message: 'Wholecake not found' });
