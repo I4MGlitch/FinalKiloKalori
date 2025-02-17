@@ -97,7 +97,7 @@ app.post('/login', async (req, res) => {
   res.json({ token });
 });
 
-app.get('/articles', async (req, res) => {
+app.get('/api/articles', async (req, res) => {
   try {
     const page = Math.max(1, parseInt(req.query.page) || 1);
     const pageSize = Math.max(1, parseInt(req.query.pageSize) || 6);
@@ -317,7 +317,7 @@ app.get('/images/:id', async (req, res) => {
   }
 });
 
-app.get('/images', async (req, res) => {
+app.get('/api/images', async (req, res) => {
   try {
     const images = await image.find();
     res.json(images);
@@ -326,7 +326,7 @@ app.get('/images', async (req, res) => {
   }
 });
 
-app.get('/images/latest/wholecake', async (req, res) => {
+app.get('/api/images/latest/wholecake', async (req, res) => {
   try {
     const images = await image.find({ category: 'Whole Cake' }).sort({ _id: -1 }).limit(6);
     res.json(images);
@@ -335,7 +335,7 @@ app.get('/images/latest/wholecake', async (req, res) => {
   }
 });
 
-app.get('/images/latest/bentocake', async (req, res) => {
+app.get('/api/images/latest/bentocake', async (req, res) => {
   try {
     const images = await image.find({ category: 'Bento Cake' }).sort({ _id: -1 }).limit(6);
     res.json(images);
@@ -344,7 +344,7 @@ app.get('/images/latest/bentocake', async (req, res) => {
   }
 });
 
-app.get('/images/latest/donut', async (req, res) => {
+app.get('/api/images/latest/donut', async (req, res) => {
   try {
     const images = await image.find({ category: 'Donut' }).sort({ _id: -1 }).limit(6);
     res.json(images);
@@ -353,7 +353,7 @@ app.get('/images/latest/donut', async (req, res) => {
   }
 });
 
-app.get('/images/latest/tiramisu', async (req, res) => {
+app.get('/api/images/latest/tiramisu', async (req, res) => {
   try {
     const images = await image.find({ category: 'Tiramisu' }).sort({ _id: -1 }).limit(6);
     res.json(images);
@@ -362,7 +362,7 @@ app.get('/images/latest/tiramisu', async (req, res) => {
   }
 });
 
-app.get('/images/all/wholecake', async (req, res) => {
+app.get('/api/images/all/wholecake', async (req, res) => {
   try {
     const images = await image.find({ category: 'Whole Cake' }).sort({ _id: -1 });
     res.json(images);
@@ -371,7 +371,7 @@ app.get('/images/all/wholecake', async (req, res) => {
   }
 });
 
-app.get('/images/all/bentocake', async (req, res) => {
+app.get('/api/images/all/bentocake', async (req, res) => {
   try {
     const images = await image.find({ category: 'Bento Cake' }).sort({ _id: -1 });
     res.json(images);
@@ -380,7 +380,7 @@ app.get('/images/all/bentocake', async (req, res) => {
   }
 });
 
-app.get('/images/all/donut', async (req, res) => {
+app.get('/api/images/all/donut', async (req, res) => {
   try {
     const images = await image.find({ category: 'Donut' }).sort({ _id: -1 });
     res.json(images);
@@ -389,7 +389,7 @@ app.get('/images/all/donut', async (req, res) => {
   }
 });
 
-app.get('/images/all/tiramisu', async (req, res) => {
+app.get('/api/images/all/tiramisu', async (req, res) => {
   try {
     const images = await image.find({ category: 'Tiramisu' }).sort({ _id: -1 });
     res.json(images);
