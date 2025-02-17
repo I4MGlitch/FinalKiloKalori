@@ -14,10 +14,10 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb custom-breadcrumb">
           <li class="breadcrumb-item">
-            <a class="breadcrumb-nav" href="/">Home</a>
+            <a class="breadcrumb-nav" routerLink="">Home</a>
           </li>
           <li class="breadcrumb-item">
-            <a class="breadcrumb-nav" href="/article-page">Articles</a>
+            <a class="breadcrumb-nav" routerLink="/article-page">Articles</a>
           </li>
           <li *ngIf="article" class="breadcrumb-item active" aria-current="page">
             {{ article.title }}
