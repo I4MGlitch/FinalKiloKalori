@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },
   { path: 'home-page', component: HomePageComponent },
   { path: 'cake-products-page', component: CakeProductsPageComponent },
-  { path: 'cake-products-page/:category/:id', component: CakeProductsPageComponent},
+  { path: 'cake-products-page/:category/:id', component: CakeProductsPageComponent },
   { path: 'dessert-products-page', component: DessertProductsPageComponent },
   { path: 'dessert-products-page/:category', component: DessertProductsPageComponent },
   { path: 'article-page', component: ArticlePageComponent },
@@ -22,11 +22,11 @@ const routes: Routes = [
   { path: 'about-us-page', component: AboutUsPageComponent },
   { path: 'login-page', component: LoginPageComponent },
   { path: 'admin-page', component: AdminPageComponent },
-  { path: '**', redirectTo: 'home-page'},
+  { path: '**', redirectTo: 'home-page' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
