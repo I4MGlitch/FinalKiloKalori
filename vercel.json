@@ -20,8 +20,8 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/kilokalori/index.html",
-      "status": 200
+      "dest": "/dist/kilokalori/index.html"
     }
   ]
 }
+
