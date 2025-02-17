@@ -13,17 +13,21 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/backend/index.js"
+      "source": "/api/(.*)",
+      "destination": "/backend/index.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "/dist/kilokalori/index.html"
+      "source": "/(.*)",
+      "destination": "/dist/kilokalori/index.html"
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/dist/kilokalori/index.html" }
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/home-page",
+      "permanent": true
+    }
   ]
 }
