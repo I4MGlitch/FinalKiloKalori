@@ -23,7 +23,6 @@ export class CakeProductsPageComponent {
   filteredCakes: any[] = [];
   uniqueFlavours: string[] = [];
   selectedSize: string = '';
-  phone: string = '+6287839892718';
   notes: string = '';
   cakeImage: File | null = null;
   isLoading: boolean = false;
@@ -163,7 +162,7 @@ export class CakeProductsPageComponent {
   }
 
   onSubmit() {
-    if (!this.phone || !this.selectedFlavour || !this.selectedSize) {
+    if ( !this.selectedFlavour || !this.selectedSize) {
       alert('Please fill out all required fields.');
       return;
     }
@@ -212,7 +211,7 @@ export class CakeProductsPageComponent {
 
   sendWhatsappMessage(shortUrl: string) {
     const message = `Halo, Saya Mau Order Kue.%0A%0A*Cake Details:*%0A- Size: ${this.selectedSize}%0A- Flavour: ${this.selectedFlavour}%0A- Notes: ${this.notes}%0A%0AFoto Referensi:%0A${shortUrl}`;
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${encodeURIComponent(this.phone)}&text=${message}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${encodeURIComponent(this.website.whatsapp)}&text=${message}`;
 
     window.open(whatsappUrl, '_blank');
     this.isLoading = false;

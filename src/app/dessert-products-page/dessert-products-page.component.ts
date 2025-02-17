@@ -21,7 +21,6 @@ export class DessertProductsPageComponent {
   selectedFlavors: string[] = [];
   selectedImage: string = '';
   selectedSize: string = '';
-  phone: string = '+6287839892718';  
   isLoading: boolean = false;
   website: any;
 
@@ -116,7 +115,7 @@ export class DessertProductsPageComponent {
   }
 
   onSubmit() {
-    if (!this.phone || !this.selectedFlavors) {
+    if (!this.selectedFlavors) {
       alert('Please fill out all required fields.');
       return;
     }
@@ -128,7 +127,7 @@ export class DessertProductsPageComponent {
   sendWhatsappMessage() {
     const message = `Halo, Saya Mau Order Dessert.%0A%0A*${this.category} Details:%0A- Flavour: ${this.selectedFlavors}`;
   
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${encodeURIComponent(this.phone)}&text=${message}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${encodeURIComponent(this.website.whatsapp)}&text=${message}`;
   
     window.open(whatsappUrl, '_blank');
     this.isLoading = false;
