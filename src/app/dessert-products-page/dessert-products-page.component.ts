@@ -41,10 +41,10 @@ export class DessertProductsPageComponent {
       this.category = params['category'];
       // Fetch images and filter cakes based on the default flavour
       this.fetchImages();
+      this.fetchOppositeImages()
+      this.fetchWebsite()
     });
 
-    this.fetchOppositeImages()
-    this.fetchWebsite()
   }
 
   fetchWebsite(): void {    

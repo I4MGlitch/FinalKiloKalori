@@ -55,10 +55,10 @@ export class CakeProductsPageComponent {
       this.cakeId = params['id'];
       // Fetch images and filter cakes based on the default flavour
       this.fetchImages();
+      this.fetchOppositeImages()
+      this.fetchWebsite()
     });
 
-    this.fetchOppositeImages()
-    this.fetchWebsite()
   }
 
   fetchWebsite(): void {    
