@@ -20,7 +20,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/kilokalori/$1"
+      "dest": "/dist/kilokalori/index.html"
     }
   ]
 }
