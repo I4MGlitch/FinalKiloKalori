@@ -14,10 +14,10 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb custom-breadcrumb">
           <li class="breadcrumb-item">
-            <a class="breadcrumb-nav" [routerLink]="/home-page">Home</a>
+            <a class="breadcrumb-nav" href="/">Home</a>
           </li>
           <li class="breadcrumb-item">
-            <a class="breadcrumb-nav" [routerLink]="/article-page">Articles</a>
+            <a class="breadcrumb-nav" href="/article-page">Articles</a>
           </li>
           <li *ngIf="article" class="breadcrumb-item active" aria-current="page">
             {{ article.title }}
@@ -25,34 +25,35 @@
         </ol>
       </nav>
     </div>
-  </div>
 
-  <div class="row mt-4">
-    <div class="col-md-12 text-center" *ngIf="article">
-      <h4 class="content-title mb-4">{{ article.title }}</h4>
+    <div class="row mt-4">
+      <div class="col-md-12 text-center" *ngIf="article">
+        <h4 class="content-title mb-4">{{ article.title }}</h4>
 
-      <img class="article-image mt-4 mb-4" [src]="article.imageUrl" alt="Article Image"
+        <img class="article-image mt-4 mb-4" [src]="article.imageUrl" alt="Article Image"
         *ngIf="article.imageUrl; else noImage">
 
-      <ng-template #noImage>
-        <p class="text-muted">No image available</p>
-      </ng-template>
+        <ng-template #noImage>
+          <p class="text-muted">No image available</p>
+        </ng-template>
 
-      <div class="article-section mt-4">
-        <div class="article-information text-justify">
-          <p *ngIf="article.description?.length === 0" class="text-muted">
-            No description available.
-          </p>
-          <p *ngFor="let paragraph of article.description">
-            {{ paragraph }}
-          </p>
+        <div class="article-section mt-4">
+          <div class="article-information text-justify">
+            <p *ngIf="article.description?.length === 0" class="text-muted">
+              No description available.
+            </p>
+            <p *ngFor="let paragraph of article.description">
+              {{ paragraph }}
+            </p>
+          </div>
         </div>
+      </div>
+
+      <div *ngIf="!article" class="col-md-12 mt-4 text-center">
+        <p>Loading article...</p>
       </div>
     </div>
 
-    <div *ngIf="!article" class="col-md-12 mt-4 text-center">
-      <p>Loading article...</p>
-    </div>
   </div>
 </div>
 
