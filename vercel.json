@@ -24,6 +24,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/(.*)", "destination": "/dist/kilokalori/index.html" }
   ]
 }
