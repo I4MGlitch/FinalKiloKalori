@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'about-us-page', component: AboutUsPageComponent },
   { path: 'login-page', component: LoginPageComponent },
   { path: 'admin-page', component: AdminPageComponent },
+  { path: '**', redirectTo: 'home-page'},
 ];
 
 @NgModule({
