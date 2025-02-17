@@ -1,0 +1,51 @@
+<footer id="footer">
+    <div class="container-fluid">
+        <div class="row back-on-top d-flex justify-content-center align-items-center">
+            <div class="col-md-12 text-center">
+                <!-- <p class="mt-3">Back on Top</p> -->
+                <button (click)="scrollToTop()" class="back-to-top-btn">Back to Top</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row pt-4 footer-section">
+            <div class="col-6 col-sm-3 mt-4">
+                <h5 class="footer-high">Kilo Kalori</h5>
+                <ul class="list-unstyled">
+                    <li><a routerLink="/about-us-page" class="footer-list">About Us</a></li>
+                    <li><a routerLink="/cake-products-page/Whole Cake/Custom" class="footer-list">Custom Cake</a></li>
+                    <li><a routerLink="/article-page" class="footer-list">Articles</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-3 mt-4">
+                <h5 class="footer-high">Helps</h5>
+                <ul class="list-unstyled">
+                    <li><a routerLink="/" class="footer-list">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-3 mt-4">
+                <h5 class="footer-high">Contact Us</h5>
+                <ul class="list-unstyled">
+                    <li><a class="footer-list">{{website?.alamat}}</a></li>
+                    <li><a class="footer-list">WA: {{website?.whatsapp}}</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-3 mt-4">
+                <h5 class="footer-high">Social Media</h5>
+                <div class="d-flex gap-3">
+                    <a href={{website?.instagram}} class="text-dark fs-4"><i class="fab fa-instagram" style="color: #5A4B38;"></i></a>
+                    <a href={{website?.facebook}} class="text-dark fs-4"><i class="fab fa-facebook" style="color: #5A4B38;"></i></a>
+                    <a href={{website?.tiktok}} class="text-dark fs-4"><i class="fab fa-tiktok" style="color: #5A4B38;"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-start copyright-section">
+                <p>© 2025 Kilo Kalori</p>
+            </div>
+        </div>
+    </div>
+    
+    
+</footer>

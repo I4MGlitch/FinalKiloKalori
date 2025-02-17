@@ -1,0 +1,133 @@
+<div id="body">
+
+<div class="container-fluid p-0">
+    <div class="content-space">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="space-text">About Us</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container pb-4">
+    <div class="row mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb custom-breadcrumb">
+                <li class="breadcrumb-item"><a class="breadcrumb-nav" routerLink="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+            </ol>
+        </nav>
+        
+        
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6 mt-4">
+            <div class="article-section">
+                <h4 class="content-title mb-4 pt-4">Our Story</h4>
+                <p class="mt-4 article-information text-justify">{{website.aboutus}}</p></div>
+        </div>
+        <div class="col-md-6 mt-4 text-center">
+            <img class="article-image mt-4 mb-4" src="../../assets/images/article1.jpg" alt="#">
+        </div>
+    </div>
+    
+</div>
+<div class="container-fluid">
+    <div class="row mt-4 map-section">
+        <div class="col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.124338520564!2d115.22078640000001!3d-8.6797243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240ef7b4ca4d9%3A0x51e5f5eb618b50c8!2sJl.%20Tukad%20Irawadi%20No.18%2C%20Dauh%20Puri%20Klod%2C%20Kec.%20Denpasar%20Bar.%2C%20Kota%20Denpasar%2C%20Bali%2080225!5e0!3m2!1sen!2sid!4v1738802958232!5m2!1sen!2sid" 
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-md-6">
+            <div class="map-content">
+                <div class="d-flex ">
+                    <img class="arrow-icon" src="../../assets/images/50529112png 3.png">
+                    <p class="content-title">Find Us Here</p>
+                </div>
+                <p class="map-head">Address:</p>
+                <p class="map-sub">{{website.alamat}}</p>
+                <p class="map-head">Opening Hours:</p>
+                <p class="map-sub">Senin - Jumat: 08.00 - 16.00</p>
+                <p class="map-sub">Sabtu - Minggu: 08.00 - 16.00</p>
+                <p class="map-head">Phone:</p>
+                <p class="map-sub">{{website.whatsapp}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pb-4">
+    <div class="row mt-4">
+        <div class="text-center mt-4 testimonials-section">
+            <h3 class="content-title">Testimonials</h3>
+            <div class="title-underline-center"></div>
+        </div>
+    </div>
+    <div class="row mt-4 pb-4 justify-content-center">
+        <div class="col-lg-4 col-md-6 col-12 mb-4 mt-4">
+            <div class="testimonial-card shadow">
+                <div class="testimonial-img-container">
+                    <img src="../../assets/images/Ellipse 2.jpg" class="testimonial-img" alt="Bu Aya">
+                </div>
+                <div class="testimonial-body">
+                    <p class="testimonial-name">Bu Aya</p>
+                    <p class="testimonial-text">“Kue dari Kilo Kalori enak, terutama vanila cream-nya. Admin sangat membantu dan sabar. Saya puas dan berencana pesan lagi.”</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 mb-4 mt-4">
+            <div class="testimonial-card shadow">
+                <div class="testimonial-img-container">
+                    <img src="../../assets/images/Ellipse 2.jpg" class="testimonial-img" alt="Bu Aya">
+                </div>
+                <div class="testimonial-body">
+                    <p class="testimonial-name">Bu Aya</p>
+                    <p class="testimonial-text">“Kue dari Kilo Kalori enak, terutama vanila cream-nya. Admin sangat membantu dan sabar. Saya puas dan berencana pesan lagi.”</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 mb-4 mt-4">
+            <div class="testimonial-card shadow">
+                <div class="testimonial-img-container">
+                    <img src="../../assets/images/Ellipse 2.jpg" class="testimonial-img" alt="Bu Aya">
+                </div>
+                <div class="testimonial-body">
+                    <p class="testimonial-name">Bu Aya</p>
+                    <p class="testimonial-text">“Kue dari Kilo Kalori enak, terutama vanila cream-nya. Admin sangat membantu dan sabar. Saya puas dan berencana pesan lagi.”</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    
+</div>
+
+<div class="floating-chat">
+    <!-- Chatbox -->
+    <div class="chatbox card shadow-sm" [ngClass]="{'show': isChatOpen}">
+        <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="../../assets/images/FONT LOGO.png" alt="Lisa" class="chat-avatar me-2">
+                <div>
+                    <h6 class="mb-0">Kilo Kalori</h6>
+                    <small>Replies within 1 day</small>
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white" (click)="toggleChat()"></button>
+        </div>
+        <div class="card-body">
+            <p class="mb-0">Click the button below to contact me if you have any questions.</p>
+        </div>
+        <div class="card-footer text-center">
+            <a [href]="'https://wa.me/' + whatsappNumber" target="_blank" class="btn btn-success w-100">
+                <i class="fab fa-whatsapp"></i> Start chat
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button class="btn btn-success rounded-circle p-3 shadow-lg chat-button" (click)="toggleChat()">
+        <i class="fab fa-whatsapp fs-3"></i>
+    </button>
+</div>

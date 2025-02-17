@@ -1,0 +1,319 @@
+<body id="body">
+<!-- Carousel Section -->
+<div id="carouselExampleCaptions" class="carousel slide p-0" data-bs-ride="carousel">
+    <!-- Carousel Indicators with Progress Bar -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+        <div class="progress-bar-inner"></div>
+      </button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2">
+        <div class="progress-bar-inner"></div>
+      </button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3">
+        <div class="progress-bar-inner"></div>
+      </button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="7000">
+        <img src="../../assets/images/WhatsApp Image 2025-02-17 at 8.32.34 AM (2).jpeg" class="carousel-image" alt="...">
+        <!-- <div class="carousel-caption mb-4">
+          <h5 class="carousel-title">First slide label</h5>
+          <p class="carousel-des pb-4">Some representative placeholder content for the first slide.</p>
+          <a routerLink="/" class="carousel-button questrial-regular">View</a>
+        </div> -->
+      </div>
+      <div class="carousel-item" data-bs-interval="7000">
+          <img src="../../assets/images/WhatsApp Image 2025-02-17 at 8.32.35 AM (1).jpeg" class="carousel-image" alt="...">
+          <!-- <div class="carousel-caption mb-4">
+            <h5 class="carousel-title">Second slide label</h5>
+            <p class="carousel-des pb-4">Some representative placeholder content for the second slide.</p>
+            <a routerLink="/" class="carousel-button questrial-regular">View</a>
+          </div> -->
+      </div>
+      <div class="carousel-item" data-bs-interval="7000">
+          <img src="../../assets/images/WhatsApp Image 2025-02-17 at 8.32.34 AM.jpeg" class="carousel-image" alt="...">
+          <!-- <div class="carousel-caption mb-4">
+            <h5 class="carousel-title">Third slide label</h5>
+            <p class="carousel-des pb-4">Some representative placeholder content for the third slide.</p>
+            <a routerLink="/" class="carousel-button questrial-regular">View</a>
+          </div> -->
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<!-- Carousel Section End -->
+
+<!-- Content Section -->
+<div class="container mt-4 mb-4" style="padding-top: 10vh; padding-bottom: 5vh;">
+  <div class="row">
+    <div class="col-md-3 res-content" style="padding: 25px 15px 0px 15px;">
+      <a href="/cake-products-page/Whole Cake/All" class="none-decoration">
+        <h1 class="content-title">Whole Cake</h1>
+        <div class="title-underline"></div>
+      </a>
+      <p class="content-des mt-2">Sponge cake vanilla dengan whipped fresh cream</p>
+      <p class="content-des">Start from <br>
+        <span class="content-price">Rp 160.000</span>
+      </p>
+    </div>
+    
+    <div class="col-md-9" style="padding: 15px;">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="contentCarousel" class="carousel slide">
+            <div class="carousel-inner">
+      
+              <!-- Carousel Item 1 - Latest 3 Images -->
+              <div class="carousel-item active">
+                <div class="row">
+                  <div *ngFor="let cake of wholeCakes.slice(0, 2); let i = index" class="col-lg-4 col-md-6 col-6 p-2">
+                    <div class="content-card">
+                      <a [routerLink]="['/cake-products-page', cake.category, cake._id]" class="none-decoration">
+                        <img [src]="cake.imageUrl" class="card-img-top product-carousel-img" alt="Whole Cake Image {{i + 1}}">
+                      </a>
+                    </div>
+                  </div>
+                  <div *ngIf="wholeCakes.length > 2" class="col-lg-4 col-md-6 d-none d-lg-block p-2">
+                    <div class="content-card">
+                      <a [routerLink]="['/cake-products-page', wholeCakes[2].category, wholeCakes[2]._id]" class="none-decoration">
+                        <img [src]="wholeCakes[2].imageUrl" class="card-img-top product-carousel-img" alt="Whole Cake Image 3">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Carousel Item 2 - The Rest of the Images -->
+              <div class="carousel-item">
+                <div class="row">
+                  <div *ngFor="let cake of wholeCakes.slice(3, 5); let i = index" class="col-lg-4 col-md-6 col-6 p-2">
+                    <div class="content-card">
+                      <a [routerLink]="['/cake-products-page', cake.category, cake._id]" class="none-decoration">
+                        <img [src]="cake.imageUrl" class="card-img-top product-carousel-img" alt="Whole Cake Image {{i + 4}}">
+                      </a>
+                    </div>
+                  </div>
+                  <div *ngIf="wholeCakes.length > 5" class="col-lg-4 col-md-6 d-none d-lg-block p-2">
+                    <div class="content-card">
+                      <a [routerLink]="['/cake-products-page', wholeCakes[5].category, wholeCakes[5]._id]" class="none-decoration">
+                        <img [src]="wholeCakes[5].imageUrl" class="card-img-top product-carousel-img" alt="Whole Cake Image 6">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <!-- Carousel Controls -->
+          <div class="row mt-1">
+            <div class="col-md-12 text-center">
+                <button class="custom-carousel-control custom-prev mb-1" type="button" data-bs-target="#contentCarousel" data-bs-slide="prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="custom-carousel-control custom-next ms-1" type="button" data-bs-target="#contentCarousel" data-bs-slide="next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid p-0 pt-4 mb-4" style="margin-bottom: 10vh;">
+  <div class="content-fullcard">
+    <div class="panel shadow-sm">
+      <div class="row">
+        <div class="col-md-12">
+          <a href="/dessert-products-page/Donut" class="none-decoration">
+            <h1 class="content-title">Kilo Donuts</h1>
+          </a>
+          <p class="content-des">Donat dengan 4 rasa yang bisa di mix dalam 1 box</p>
+          <p class="content-des mb-4">Start from <br>
+            <span class="content-price">Rp 65.000</span>
+          </p>
+          <a href="/dessert-products-page/Donut" class="see-btn">See Details</a>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+</div>
+
+<!-- Content Section for Bento Cakes -->
+<div class="container mt-4 mb-4">
+  <div class="row bento-content">
+    <div class="col-md-3 res-content" style="padding: 25px 15px 0px 15px;">
+      <a href="/cake-products-page/Bento Cake/All" class="none-decoration">
+        <h1 class="content-title">Bento Cake</h1>
+        <div class="title-underline"></div>
+      </a>
+      <p class="content-des mt-2">Sponge cake vanilla dengan whipped fresh cream</p>
+      <p class="content-des">Start from <br>
+        <span class="content-price">Rp 55.000</span>
+      </p>
+    </div>
+    
+    <div class="col-md-9" style="padding: 15px;">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="contentCarousel2" class="carousel slide">
+            <div class="carousel-inner">
+              <!-- Carousel Item 1 - Latest 3 Images -->
+              <div class="carousel-item active">
+                <div class="row">
+                  <div *ngFor="let cake of bentoCakes.slice(0, 2); let i = index" class="col-lg-4 col-md-6 col-6 p-2">
+                    <div class="content-card">
+                      <a [routerLink]="['/cake-products-page', cake.category, cake._id]" class="none-decoration">
+                        <img [src]="cake.imageUrl" class="card-img-top product-carousel-img" alt="Bento Cake Image {{i + 1}}">
+                      </a>
+                    </div>
+                  </div>
+                  <div *ngIf="bentoCakes.length > 2" class="col-lg-4 col-md-6 d-none d-lg-block p-2">
+                    <div class="content-card">
+                      <a [routerLink]="['/cake-products-page', bentoCakes[2].category, bentoCakes[2]._id]" class="none-decoration">
+                        <img [src]="bentoCakes[2].imageUrl" class="card-img-top product-carousel-img" alt="Bento Cake Image 3">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Carousel Item 2 - The Rest of the Images -->
+              <div class="carousel-item">
+                <div class="row">
+                  <div *ngFor="let cake of bentoCakes.slice(3, 5); let i = index" class="col-lg-4 col-md-6 col-6 p-2">
+                    <div class="content-card">
+                      <a [routerLink]="['/cake-products-page', cake.category, cake._id]" class="none-decoration">
+                        <img [src]="cake.imageUrl" class="card-img-top product-carousel-img" alt="Bento Cake Image {{i + 4}}">
+                      </a>
+                    </div>
+                  </div>
+                  <div *ngIf="bentoCakes.length > 5" class="col-lg-4 col-md-6 d-none d-lg-block p-2">
+                    <div class="content-card">
+                      <a [routerLink]="['/cake-products-page', bentoCakes[5].category, bentoCakes[5]._id]" class="none-decoration">
+                        <img [src]="bentoCakes[5].imageUrl" class="card-img-top product-carousel-img" alt="Bento Cake Image 6">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <!-- Carousel Controls -->
+          <div class="row mt-1">
+            <div class="col-md-12 text-center">
+                <button class="custom-carousel-control custom-prev mb-1" type="button" data-bs-target="#contentCarousel2" data-bs-slide="prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="custom-carousel-control custom-next ms-1" type="button" data-bs-target="#contentCarousel2" data-bs-slide="next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid mt-4 mb-4">
+  <div class="row tiramisu-content">
+    <div class="col-md-6 p-0">
+      <img class="tiramisu-content-img" src="../../assets/images/IMG_2156_jpg.jpg">
+    </div>
+    <div class="col-md-6" style="background-color: white;">
+      <div class="tiramisu-text">
+        <a href="/dessert-products-page/Tiramisu" class="none-decoration">
+          <h1 class="content-title">Loaded Tiramisu</h1>
+          <div class="title-underline"></div>
+        </a>
+        <p class="content-des mt-2">Perpaduan biscuit lady fingers dengan mascarpone cream, kopi, rhum (alcohol), dan kilo crumbles</p>
+        <p class="content-des mb-4">Start from <br>
+          <span class="content-price">Rp 67.000</span>
+        </p>
+        <a href="/dessert-products-page/Tiramisu" class="see-btn">See Details</a>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4 pb-4">
+  <div class="row justify-content-center">
+    <a href="/article-page" style="text-decoration: none;"><h2 class="content-title text-center pt-4">Read Our Articles</h2></a>
+
+    <div *ngFor="let article of articles" class="col-lg-4 col-md-6 col-6 d-flex justify-content-center">
+      <div class="article-card shadow mt-4">
+        <img [src]="article.imageUrl" class="article-card-img" alt="Article Image">
+        <div class="article-body">
+          <h5 class="article-title text-clamp-2">{{ article.title }}</h5>
+          <p class="card-text article-des text-clamp-3 text-justify">
+            {{ article.description }}
+          </p>
+          <a [href]="'/article-details-page/' + article._id" class="article-link">Read More >></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="empty-space">
+  <p></p>
+</div>
+
+</body>
+
+
+<div class="floating-chat">
+  <!-- Chatbox -->
+  <div class="chatbox card shadow-sm" [ngClass]="{'show': isChatOpen}">
+      <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+              <img src="../../assets/images/FONT LOGO.png" alt="Lisa" class="chat-avatar me-2">
+              <div>
+                  <h6 class="mb-0">Kilo Kalori</h6>
+                  <small>Replies within 1 day</small>
+              </div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" (click)="toggleChat()"></button>
+      </div>
+      <div class="card-body">
+          <p class="mb-0">Click the button below to contact me if you have any questions.</p>
+      </div>
+      <div class="card-footer text-center">
+          <a [href]="'https://wa.me/' + whatsappNumber" target="_blank" class="btn btn-success w-100">
+              <i class="fab fa-whatsapp"></i> Start chat
+          </a>
+      </div>
+  </div>
+
+  <!-- Floating Button -->
+  <button class="btn btn-success rounded-circle p-3 shadow-lg chat-button" (click)="toggleChat()">
+    <i class="fab fa-whatsapp fs-3"></i>
+  </button>
+</div>

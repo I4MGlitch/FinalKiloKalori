@@ -1,0 +1,1004 @@
+<div class="container-fluid p-0">
+    <div class="navbar sticky-top admin-navbar">
+        <div class="container">
+            <img src="../../assets/images/FONT LOGO.png" alt="Logo"
+                class="d-inline-block align-text-top admin-navbar-logo">
+            <p class="admin-nav-title">Admin Manage</p>
+            <!-- Tombol Toggle Sidebar untuk Mobile -->
+            <button class="admin-btn-offcanvas mb-3 admin-offcanvas" id="sidebarToggle" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarOffcanvas">
+                ☰
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Sidebar (Desktop Mode) -->
+        <div class="col-md-2 admin-sidebar p-0" id="sidebarContainer">
+            <div class="nav flex-column nav-tabs sidebar-btn" id="sidebarTab" role="tablist">
+                <button class="nav-link active" id="sidebar-whole-cake-tab" data-bs-toggle="tab"
+                    data-bs-target="#sidebar-whole-cake-tab-pane" type="button" role="tab"
+                    aria-controls="sidebar-whole-cake-tab-pane" aria-selected="true">Whole Cake</button>
+                <button class="nav-link" id="sidebar-bento-cake-tab" data-bs-toggle="tab"
+                    data-bs-target="#sidebar-bento-cake-tab-pane" type="button" role="tab"
+                    aria-controls="sidebar-bento-cake-tab-pane" aria-selected="false">Bento Cake</button>
+                <button class="nav-link" id="sidebar-kilo-donuts-tab" data-bs-toggle="tab"
+                    data-bs-target="#sidebar-kilo-donuts-tab-pane" type="button" role="tab"
+                    aria-controls="sidebar-kilo-donuts-tab-pane" aria-selected="false">Kilo Donuts</button>
+                <button class="nav-link" id="sidebar-tiramisu-tab" data-bs-toggle="tab"
+                    data-bs-target="#sidebar-tiramisu-tab-pane" type="button" role="tab"
+                    aria-controls="sidebar-tiramisu-tab-pane" aria-selected="false">Tiramisu</button>
+                <button class="nav-link" id="sidebar-variants-tab" data-bs-toggle="tab"
+                    data-bs-target="#sidebar-variants-tab-pane" type="button" role="tab"
+                    aria-controls="sidebar-variants-tab-pane" aria-selected="false">Variants</button>
+                <button class="nav-link" id="sidebar-articles-tab" data-bs-toggle="tab"
+                    data-bs-target="#sidebar-articles-tab-pane" type="button" role="tab"
+                    aria-controls="sidebar-articles-tab-pane" aria-selected="false">Articles</button>
+                <button class="nav-link" id="sidebar-biodata-tab" data-bs-toggle="tab"
+                    data-bs-target="#sidebar-biodata-tab-pane" type="button" role="tab"
+                    aria-controls="sidebar-biodata-tab-pane" aria-selected="false">Biodata Website</button>
+                <a class="nav-link text-center signout-btn" (click)="logout()"><i
+                        class="fa-solid fa-arrow-right-from-bracket me-1"></i> Signout</a>
+            </div>
+        </div>
+
+        <!-- Offcanvas Sidebar (Mobile Mode) -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas">
+            <div class="offcanvas-header admin-navbar">
+                <h5 class="offcanvas-title admin-nav-title ps-4">Admin Menu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body p-0">
+                <div class="nav flex-column nav-tabs sidebar-btn">
+                    <button class="nav-link active" id="sidebar-whole-cake-tab" data-bs-toggle="tab"
+                        data-bs-target="#sidebar-whole-cake-tab-pane" type="button" role="tab"
+                        aria-controls="sidebar-whole-cake-tab-pane" aria-selected="true"
+                        (click)="closeOffcanvas()">Whole Cake</button>
+                    <button class="nav-link" id="sidebar-bento-cake-tab" data-bs-toggle="tab"
+                        data-bs-target="#sidebar-bento-cake-tab-pane" type="button" role="tab"
+                        aria-controls="sidebar-bento-cake-tab-pane" aria-selected="false"
+                        (click)="closeOffcanvas()">Bento Cake</button>
+                    <button class="nav-link" id="sidebar-kilo-donuts-tab" data-bs-toggle="tab"
+                        data-bs-target="#sidebar-kilo-donuts-tab-pane" type="button" role="tab"
+                        aria-controls="sidebar-kilo-donuts-tab-pane" aria-selected="false"
+                        (click)="closeOffcanvas()">Kilo Donuts</button>
+                    <button class="nav-link" id="sidebar-tiramisu-tab" data-bs-toggle="tab"
+                        data-bs-target="#sidebar-tiramisu-tab-pane" type="button" role="tab"
+                        aria-controls="sidebar-tiramisu-tab-pane" aria-selected="false"
+                        (click)="closeOffcanvas()">Tiramisu</button>
+                    <button class="nav-link" id="sidebar-variants-tab" data-bs-toggle="tab"
+                        data-bs-target="#sidebar-variants-tab-pane" type="button" role="tab"
+                        aria-controls="sidebar-variants-tab-pane" aria-selected="false"
+                        (click)="closeOffcanvas()">Variants</button>
+                    <button class="nav-link" id="sidebar-articles-tab" data-bs-toggle="tab"
+                        data-bs-target="#sidebar-articles-tab-pane" type="button" role="tab"
+                        aria-controls="sidebar-articles-tab-pane" aria-selected="false"
+                        (click)="closeOffcanvas()">Articles</button>
+                    <button class="nav-link" id="sidebar-biodata-tab" data-bs-toggle="tab"
+                        data-bs-target="#sidebar-biodata-tab-pane" type="button" role="tab"
+                        aria-controls="sidebar-biodata-tab-pane" aria-selected="false"
+                        (click)="closeOffcanvas()">Biodata Website</button>
+                    <a class="nav-link text-center signout-btn" (click)="logout()"><i
+                            class="fa-solid fa-arrow-right-from-bracket me-1"></i> Signout</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Tab Content -->
+        <div class="col-md-10">
+            <div class="tab-content">
+                <div class="tab-pane fade show active p-2" id="sidebar-whole-cake-tab-pane">
+                    <p class="tab-title mt-4">Whole Cake</p>
+                    <div class="tab-title-underline"></div>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text" class="form-control admin-search" placeholder="Search by Name"
+                                    [(ngModel)]="searchQuery" (input)="searchWholeCake()" aria-label="Search">
+                                <button type="submit" class="btn btn-search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <button type="button" class="btn btn-add" data-bs-toggle="modal"
+                                    data-bs-target="#cakesModal">
+                                    <i class="fa-solid fa-plus"></i> Add
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+
+                    <div class="table-container admin-table-container mt-2">
+                        <table class="table table-bordered admin-table cake-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cake of filteredWholeCake; let i = index">
+                                    <td>{{ i + 1 }}</td>
+                                    <td class="text-center">
+                                        <img [src]="cake.imageUrl" class="table-img">
+                                    </td>
+                                    <td>{{ cake.name }}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger" (click)="deleteImage(cake._id, cake.category)">
+                                            <i class="fa-regular fa-trash-can"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <!-- Pagination -->
+                    <div class="row mt-4 justify-content-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination custom-pagination">
+                                <!-- Previous Button -->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+
+                                <!-- Page Numbers -->
+                                <li class="page-item">
+                                    <a class="page-link">1</a>
+                                </li>
+
+                                <!-- Next Button -->
+                                <li class="page-item">
+                                    <a class="page-link">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade p-2" id="sidebar-bento-cake-tab-pane">
+                    <p class="tab-title mt-4">Bento Cake</p>
+                    <div class="tab-title-underline"></div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text" class="form-control admin-search" placeholder="Search by Name"
+                                    [(ngModel)]="searchQuery" (input)="searchBentoCake()" aria-label="Search">
+                                <button type="submit" class="btn btn-search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <button type="button" class="btn btn-add" data-bs-toggle="modal"
+                                    data-bs-target="#cakesModal">
+                                    <i class="fa-solid fa-plus"></i> Add
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+
+                    <div class="table-container admin-table-container mt-2">
+                        <table class="table table-bordered admin-table cake-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cake of filteredBentoCake; let i = index">
+                                    <td>{{ i + 1 }}</td>
+                                    <td class="text-center">
+                                        <img [src]="cake.imageUrl" class="table-img">
+                                    </td>
+                                    <td>{{ cake.name }}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="deleteImage(cake._id, cake.category)">
+                                            <i class="fa-regular fa-trash-can"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="row mt-4 justify-content-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination custom-pagination">
+                                <!-- Previous Button -->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+
+                                <!-- Page Numbers -->
+                                <li class="page-item">
+                                    <a class="page-link">1</a>
+                                </li>
+
+                                <!-- Next Button -->
+                                <li class="page-item">
+                                    <a class="page-link">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade p-2" id="sidebar-kilo-donuts-tab-pane">
+                    <p class="tab-title mt-4">Kilo Donuts</p>
+                    <div class="tab-title-underline"></div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text" class="form-control admin-search" placeholder="Search by Name"
+                                    [(ngModel)]="searchQuery" (input)="searchDonuts()" aria-label="Search">
+                                <button type="submit" class="btn btn-search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <button type="button" class="btn btn-add" data-bs-toggle="modal"
+                                    data-bs-target="#dessertsModal">
+                                    <i class="fa-solid fa-plus"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container admin-table-container mt-2">
+                        <table class="table table-bordered admin-table dessert-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let donut of filteredDonuts; let index = index">
+                                    <td>{{ index + 1 }}</td>
+                                    <td class="text-center">
+                                        <img [src]="donut.imageUrl" class="table-img">
+                                    </td>
+                                    <td>{{ donut.name }}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="deleteImage(donut._id, 'Donut')">
+                                            <i class="fa-regular fa-trash-can"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="row mt-4 justify-content-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination custom-pagination">
+                                <!-- Previous Button -->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+
+                                <!-- Page Numbers -->
+                                <li class="page-item">
+                                    <a class="page-link">1</a>
+                                </li>
+
+                                <!-- Next Button -->
+                                <li class="page-item">
+                                    <a class="page-link">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade p-2" id="sidebar-tiramisu-tab-pane">
+                    <p class="tab-title mt-4">Tiramisu</p>
+                    <div class="tab-title-underline"></div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text" class="form-control admin-search" placeholder="Search by Name"
+                                    [(ngModel)]="searchQuery" (input)="searchTiramisu()" aria-label="Search">
+                                <button type="submit" class="btn btn-search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <button type="button" class="btn btn-add" data-bs-toggle="modal"
+                                    data-bs-target="#dessertsModal">
+                                    <i class="fa-solid fa-plus"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container admin-table-container mt-2">
+                        <table class="table table-bordered admin-table dessert-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let tiramisu of filteredTiramisu; let i = index">
+                                    <td>{{ i + 1 }}</td>
+                                    <td class="text-center"><img [src]="tiramisu.imageUrl" class="table-img"></td>
+                                    <td>{{ tiramisu.name }}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="deleteImage(tiramisu._id, tiramisu.category)">
+                                            <i class="fa-regular fa-trash-can"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="row mt-4 justify-content-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination custom-pagination">
+                                <!-- Previous Button -->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+
+                                <!-- Page Numbers -->
+                                <li class="page-item">
+                                    <a class="page-link">1</a>
+                                </li>
+
+                                <!-- Next Button -->
+                                <li class="page-item">
+                                    <a class="page-link">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade p-2" id="sidebar-variants-tab-pane">
+                    <p class="tab-title mt-4">Variants</p>
+                    <div class="tab-title-underline"></div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text" class="form-control admin-search" placeholder="Search by Flavour"
+                                    [(ngModel)]="searchQuery" (input)="searchVariants()" aria-label="Search">
+                                <button type="button" class="btn btn-search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <button type="button" class="btn btn-add" data-bs-toggle="modal"
+                                    data-bs-target="#variantsModal">
+                                    <i class="fa-solid fa-plus"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cake Variants Table -->
+                    <div class="table-container admin-table-container mt-2">
+                        <h4 class="table-title">Cake Variants</h4>
+                        <table class="table table-bordered admin-table variants-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Flavour</th>
+                                    <th>Size</th>
+                                    <th>Price</th>
+                                    <th>Category</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let variant of filteredCakeVariants; let i = index">
+                                    <td>{{ i + 1 }}</td>
+                                    <td>{{ variant.flavor }}</td>
+                                    <td>{{ variant.size }}</td>
+                                    <td>{{ variant.price }}</td>
+                                    <td>{{ variant.category }}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="deleteVariant(variant._id, variant.category)">
+                                            <i class="fa-regular fa-trash-can"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Dessert Variants Table -->
+                    <div class="table-container admin-table-container mt-4">
+                        <h4 class="table-title">Dessert Variants</h4>
+                        <table class="table table-bordered admin-table variants-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Flavour</th>
+                                    <th>Price</th>
+                                    <th>Category</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let variant of filteredDessertVariants; let i = index">
+                                    <td>{{ i + 1 }}</td>
+                                    <td>{{ variant.name }}</td>
+                                    <td>{{ variant.price }}</td>
+                                    <td>{{ variant.category }}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-danger"
+                                            (click)="deleteVariant(variant._id, variant.category)">
+                                            <i class="fa-regular fa-trash-can"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="row mt-4 justify-content-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination custom-pagination">
+                                <!-- Previous Button -->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+
+                                <!-- Page Numbers -->
+                                <li class="page-item">
+                                    <a class="page-link">1</a>
+                                </li>
+
+                                <!-- Next Button -->
+                                <li class="page-item">
+                                    <a class="page-link">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade p-2" id="sidebar-articles-tab-pane">
+                    <p class="tab-title mt-4">Articles</p>
+                    <div class="tab-title-underline"></div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text" class="form-control admin-search" placeholder="Search by Title"
+                                    aria-label="Search" [(ngModel)]="searchQuery" (input)="searchArticles()">
+                                <button type="submit" class="btn btn-search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <button type="button" class="btn btn-add" data-bs-toggle="modal"
+                                    data-bs-target="#articlesModal">
+                                    <i class="fa-solid fa-plus"></i> Add
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+
+                    <div class="table-container admin-table-container mt-2">
+                        <table class="table table-bordered admin-table variants-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let articles of filteredArticles; let i = index">
+                                    <td>{{ i + 1 }}</td>
+                                    <td class="text-center">
+                                        <img [src]="articles.imageUrl" class="table-img" alt="Article Image">
+                                    </td>
+                                    <td>{{ articles.title }}</td>
+                                    <td>{{ articles.description }}</td>
+                                    <td>
+                                        <div class="text-center d-flex flex-column align-items-center gap-2">
+                                            <!-- <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#articlesEditModal" (click)="editArticle(article)">
+                                                <i class="fa-regular fa-pen-to-square"></i> Edit
+                                            </button> -->
+                                            <button type="button" class="btn btn-danger"
+                                                (click)="deleteArticle(articles._id)">
+                                                <i class="fa-regular fa-trash-can"></i> Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="row mt-4 justify-content-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination custom-pagination">
+                                <!-- Previous Button -->
+                                <li class="page-item">
+                                    <a class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+
+                                <!-- Page Numbers -->
+                                <li class="page-item">
+                                    <a class="page-link">1</a>
+                                </li>
+
+                                <!-- Next Button -->
+                                <li class="page-item">
+                                    <a class="page-link">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade p-2" id="sidebar-biodata-tab-pane">
+                    <p class="tab-title mt-4">Biodata Website</p>
+                    <div class="tab-title-underline"></div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text" class="form-control admin-search" placeholder="Search by Name"
+                                    aria-label="Search">
+                                <button type="submit" class="btn btn-search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+
+                    <div class="table-container admin-table-container mt-2">
+                        <table class="table table-bordered admin-table cake-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Content</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>About Us</td>
+                                    <td>
+                                        <textarea class="form-control" rows="2"
+                                            [(ngModel)]="website.aboutus"></textarea>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-success"
+                                            (click)="saveBiodata('aboutus', website.aboutus)">
+                                            <i class="fa-regular fa-floppy-disk"></i> Save
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>Whatsapp</td>
+                                    <td>
+                                        <textarea class="form-control" rows="2"
+                                            [(ngModel)]="website.whatsapp"></textarea>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-success"
+                                            (click)="saveBiodata('whatsapp', website.whatsapp)">
+                                            <i class="fa-regular fa-floppy-disk"></i> Save
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>Alamat</td>
+                                    <td>
+                                        <textarea class="form-control" rows="2" [(ngModel)]="website.alamat"></textarea>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-success"
+                                            (click)="saveBiodata('alamat', website.alamat)">
+                                            <i class="fa-regular fa-floppy-disk"></i> Save
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td>Link Map</td>
+                                    <td>
+                                        <textarea class="form-control" rows="2"
+                                            [(ngModel)]="website.linkmap"></textarea>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-success"
+                                            (click)="saveBiodata('linkmap', website.linkmap)">
+                                            <i class="fa-regular fa-floppy-disk"></i> Save
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td>Facebook</td>
+                                    <td>
+                                        <textarea class="form-control" rows="2"
+                                            [(ngModel)]="website.facebook"></textarea>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-success"
+                                            (click)="saveBiodata('facebook', website.facebook)">
+                                            <i class="fa-regular fa-floppy-disk"></i> Save
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>6</td>
+                                    <td>Instagram</td>
+                                    <td>
+                                        <textarea class="form-control" rows="2"
+                                            [(ngModel)]="website.instagram"></textarea>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-success"
+                                            (click)="saveBiodata('instagram', website.instagram)">
+                                            <i class="fa-regular fa-floppy-disk"></i> Save
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>7</td>
+                                    <td>Tiktok</td>
+                                    <td>
+                                        <textarea class="form-control" rows="2" [(ngModel)]="website.tiktok"></textarea>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-success"
+                                            (click)="saveBiodata('tiktok', website.tiktok)">
+                                            <i class="fa-regular fa-floppy-disk"></i> Save
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <!-- <tr>
+                                        <td>8</td>
+                                        <td>Carousel Image 1</td>
+                                        <td>
+                                            <div class="form-group mt-2">
+                                                <label for="exampleInputFile" class="mb-2">File input</label>
+                                                <input type="file" class="form-control" id="exampleInputFile"
+                                                    aria-describedby="fileHelp">
+                                                <small id="fileHelp" class="form-text text-muted">Image must be in .jpg,
+                                                    .jpeg, .png format.</small>
+                                            </div>
+                                        </td>
+                                        <td class="text-center"><button type="button" class="btn btn-success"><i
+                                                    class="fa-regular fa-floppy-disk"></i> Save</button></td>
+                                    </tr> -->
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- MODALS -->
+
+            <!-- ADD CAKE MODAL SECTION -->
+            <div class="modal fade" id="cakesModal" tabindex="-1" aria-labelledby="cakesModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="cakesModalLabel">Add Cake</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Image Preview -->
+                            <div class="text-center">
+                                <img *ngIf="imagePreview" [src]="imagePreview" class="admin-modal-img">
+                                <div *ngIf="!imagePreview" class="empty-image-placeholder">No Image Selected</div>
+                            </div>
+
+                            <!-- Form -->
+                            <form>
+                                <div class="form-group mt-2">
+                                    <label for="exampleInputFile" class="mb-2">File input</label>
+                                    <input type="file" class="form-control" id="exampleInputFile1" (change)="onFileSelected($event)" accept="image/*">
+                                    <small id="fileHelp" class="form-text text-muted">Image must be in .jpg, .jpeg, .png format.</small>
+                                </div>
+
+                                <div class="form-group mt-2">
+                                    <label for="categorycakeSelect" class="mb-2">Category</label>
+                                    <select class="form-select" id="categorycakeSelect" [(ngModel)]="selectedCategory"
+                                        name="category">
+                                        <option value="" disabled selected>Select a category</option>
+                                        <option value="Whole Cake">Whole Cake</option>
+                                        <option value="Bento Cake">Bento Cake</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" (click)="submitForm()"
+                                [disabled]="isUploading">
+                                {{ isUploading ? 'Uploading...' : 'Submit' }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADD CAKE MODAL END -->
+
+            <!-- ADD DESSERTS MODAL SECTION -->
+            <div class="modal fade" id="dessertsModal" tabindex="-1" aria-labelledby="dessertsModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="dessertsModalLabel">Add Dessert</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Image Preview -->
+                            <div class="text-center">
+                                <img *ngIf="imagePreview" [src]="imagePreview" class="admin-modal-img">
+                                <div *ngIf="!imagePreview" class="empty-image-placeholder">No Image Selected</div>
+                            </div>
+
+                            <!-- Form -->
+                            <form>
+                                <div class="form-group mt-2">
+                                    <label for="exampleInputFile" class="mb-2">File input</label>
+                                    <input type="file" class="form-control" id="exampleInputFile2" (change)="onFileSelected($event)" accept="image/*">
+                                    <small id="fileHelp" class="form-text text-muted">Image must be in .jpg, .jpeg, .png format.</small>
+                                  </div>
+
+                                <div class="form-group mt-2">
+                                    <label for="categorydessertSelect" class="mb-2">Category</label>
+                                    <select class="form-select" id="categorydessertSelect"
+                                        [(ngModel)]="selectedCategory" name="category">
+                                        <option selected disabled>Select a category</option>
+                                        <option value="Donut">Donut</option>
+                                        <option value="Tiramisu">Tiramisu</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" (click)="submitForm()"
+                                [disabled]="isUploading">
+                                {{ isUploading ? 'Uploading...' : 'Submit' }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ADD DESSERTS MODAL END -->
+
+            <!-- ADD VARIANTS MODAL SECTION -->
+            <div class="modal fade" id="variantsModal" tabindex="-1" aria-labelledby="variantsModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="variantsModalLabel">Add Variants</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group mt-2">
+                                    <label for="categorySelect" class="mb-2">Category</label>
+                                    <select class="form-select" [(ngModel)]="selectedCategory"
+                                        (change)="onCategoryChange()" name="category">
+                                        <option selected disabled value="">Open this select menu</option>
+                                        <option value="Whole Cake">Whole Cake</option>
+                                        <option value="Bento Cake">Bento Cake</option>
+                                        <option value="Donut">Donut</option>
+                                        <option value="Tiramisu">Tiramisu</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group mt-2">
+                                    <label for="formControlFlavour" class="mb-2">Flavour</label>
+                                    <input type="text" class="form-control" id="formControlFlavour"
+                                        [(ngModel)]="flavour" name="flavour" placeholder="Flavour">
+                                </div>
+
+                                <div class="form-group mt-2" *ngIf="showSize">
+                                    <label for="formControlSize" class="mb-2">Size (cm)</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="formControlSize" [(ngModel)]="size"
+                                            name="size">
+                                        <span class="input-group-text">cm</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mt-2">
+                                    <label for="formControlPrice" class="mb-2">Price (Rp)</label>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Rp</span>
+                                        <input type="text" class="form-control" id="formControlPrice"
+                                            [(ngModel)]="price" name="price">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!-- Submit Button -->
+                            <button type="button" class="btn btn-primary"
+                                (click)="selectedCategory === 'Whole Cake' || selectedCategory === 'Bento Cake' ? submitCake() : submitDessert()">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ADD VARIANTS MODAL END -->
+
+            <div class="modal fade" id="articlesModal" tabindex="-1" aria-labelledby="articlesModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="articlesModalLabel">Add Articles</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <img *ngIf="imagePreview" [src]="imagePreview" class="admin-modal-img">
+                            </div>
+                            <form>
+                                <div class="form-group mt-2">
+                                    <label for="exampleInputFile" class="mb-2">File input</label>
+                                    <input type="file" class="form-control" id="exampleInputFile3" (change)="onFileSelected($event)" accept="image/*">
+                                    <small id="fileHelp" class="form-text text-muted">Image must be in .jpg, .jpeg, .png format.</small>
+                                </div>
+
+                                <div class="form-group mt-2">
+                                    <label for="titleFormControl" class="mb-2">Title</label>
+                                    <input type="text" class="form-control" id="titleFormControl" [(ngModel)]="title"
+                                        name="title" placeholder="Title">
+                                </div>
+
+                                <div class="form-group mt-2">
+                                    <label for="descriptionFormControl" class="mb-2">Description</label>
+                                    <textarea class="form-control" id="descriptionFormControl" rows="3"
+                                        [(ngModel)]="description" name="description" (input)="updateDescription()"
+                                        placeholder="Write multiple paragraphs..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" (click)="submitArticle()"
+                                [disabled]="isUploading">
+                                {{ isUploading ? 'Uploading...' : 'Submit' }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- EDIT ARTICLES MODAL SECTION -->
+            <div class="modal fade" id="articlesEditModal" tabindex="-1" aria-labelledby="articlesEditModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="articlesEditModalLabel">Edit Article</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <img src="../../assets/images/IMG_0246_jpg.jpg" class="admin-modal-img">
+                            </div>
+                            <form>
+                                <div class="form-group mt-2">
+                                    <label for="exampleInputFile" class="mb-2">File input</label>
+                                    <input type="file" class="form-control" id="exampleInputFile"
+                                        aria-describedby="fileHelp">
+                                    <small id="fileHelp" class="form-text text-muted">Image must be in .jpg, .jpeg, .png
+                                        format.</small>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label for="titleFormControl" class="mb-2">Title</label>
+                                    <input type="text" class="form-control" id="titleFormControl" placeholder="Title">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label for="titleFormControl" class="mb-2">Description</label>
+                                    <textarea class="form-control" id="titleFormControl" rows="3"
+                                        placeholder="Description"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- EDIT ARTICLES MODAL END -->
+
+        </div>
+    </div>
+</div>

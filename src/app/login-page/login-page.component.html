@@ -1,0 +1,55 @@
+<div class="container-fluid p-0 m-0">
+    <div class="row g-0">
+        <!-- Left Image Section -->
+        <div class="col-md-6 position-relative">
+            <img src="../../assets/images/FONT LOGO.png" class="login-logo" alt="Login Logo">
+            <img src="../../assets/images/IMG_9309_jpg.jpg" class="login-thumbnail" alt="Login Thumbnail">
+        </div>
+
+        <!-- Right Login Form Section -->
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <div class="w-75 mb-4">
+                <p class="login-title mt-4">Admin Login</p>
+                <p class="login-greetings">Hi, Welcome to the Admin Panel</p>
+                
+                <form (ngSubmit)="login()">
+                    <!-- Username Input -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label login-label">Username</label>
+                        <input 
+                            type="text" 
+                            placeholder="Username" 
+                            class="form-control" 
+                            id="username" 
+                            [(ngModel)]="loginData.username"
+                            name="username"
+                            required>
+                    </div>
+
+                    <!-- Password Input with Toggle -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label login-label">Password</label>
+                        <div class="input-group">
+                            <input 
+                                [type]="showPassword ? 'text' : 'password'" 
+                                placeholder="Password" 
+                                class="form-control" 
+                                id="password" 
+                                [(ngModel)]="loginData.password"
+                                name="password"
+                                required>
+                            <button class="input-group-text toggle-password" type="button" (click)="togglePassword()" style="width: 40px;">
+                                <i [ngClass]="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Login Button -->
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn-signin">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

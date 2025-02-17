@@ -1,0 +1,434 @@
+<div id="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 pt-4">
+                <div class="row">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb custom-breadcrumb">
+                            <li class="breadcrumb-item"><a class="breadcrumb-nav" routerLink="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{category}}</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div id="productCarousel" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div *ngFor="let cake of theCakes; let i = index"
+                                    [class.active]="cake.imageUrl === selectedImage" class="carousel-item">
+                                    <img [src]="cake.imageUrl" class="product-image" alt="Cake Image {{i + 1}}"
+                                        data-bs-toggle="modal" data-bs-target="#carouselModal"
+                                        (click)="setModalImage(cake.imageUrl)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="carouselModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body gallery-modal">
+                                    <img id="modalImage" src={{selectedImage}} class="img-fluid modal-img"
+                                        alt="Modal Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <!-- Carousel Controls -->
+                        <div class="row mt-1">
+                            <div class="col-md-12 text-center">
+                                <button class="custom-carousel-control custom-prev mb-1" type="button"
+                                    data-bs-target="#productCarousel" data-bs-slide="prev">
+                                    <i class="fas fa-chevron-left"></i> <!-- FontAwesome -->
+                                </button>
+                                <button class="custom-carousel-control custom-next ms-1" type="button"
+                                    data-bs-target="#productCarousel" data-bs-slide="next">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 product-panel pt-4">
+                <div class="product-content">
+
+                    <h2 class="product-title">{{category}}</h2>
+                    <p class="product-des text-justify">Combination of Fluffy Vanilla Sponge Cake delicately baked to
+                        perfection. With light, creamy whipped Fresh Cream made from the finest dairy. Topped up with
+                        sweet, Juicy Strawberries Handpicked for their vibrant color and natural sweetness.</p>
+
+                    <!-- Flavour Selection -->
+                    <label for="flavourSelect" class="form-label select-label">Flavour</label>
+                    <div class="product-select">
+                        <select class="form-select" id="flavourSelect" (change)="onFlavorChange($event)"
+                            [(ngModel)]="selectedFlavour">
+                            <option value="" disabled>-- Select --</option>
+                            <option *ngFor="let flavour of uniqueFlavours" [value]="flavour">
+                                {{ flavour }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- Price Table -->
+                    <div *ngIf="selectedFlavour" class="product-table">
+                        <table class="table mt-4">
+                            <thead>
+                                <tr class="tr-border">
+                                    <th>Size</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cake of filteredCakes">
+                                    <td>{{ cake.size }}</td>
+                                    <td>Rp {{ cake.price }}</td> <!-- Format price as Rupiah -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Selection Section -->
+                    <div *ngIf="selectedFlavour" class="selection-table">
+                        <label for="orderSelect" class="form-label select-label mt-4">Select Order By Size</label>
+                        <table class="table mt-4">
+                            <thead>
+                                <tr class="tr-border">
+                                    <th>Select</th>
+                                    <th>Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cake of filteredCakes">
+                                    <td class="radio-cell">
+                                        <input class="custom-radio" type="radio" name="size" [id]="'size' + cake.size"
+                                            [value]="cake.size" [(ngModel)]="selectedSize" />
+                                    </td>
+                                    <td>{{ cake.size }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Notes Section -->
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label select-label">Add cakes reference image</label>
+                        <input class="form-control" type="file" id="formFile" (change)="onImageChange($event)"
+                            required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label select-label">Notes</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Notes"
+                            [(ngModel)]="notes"></textarea>
+                    </div>
+
+                    <!-- Order Button -->
+                    <div class="text-center">
+                        <button class="order-btn mt-4 mb-4" type="button" (click)="onSubmit()" [disabled]="isLoading">
+                            Order Now
+                            <i class="fa-brands fa-whatsapp" *ngIf="!isLoading"></i>
+                            <div class="loading-spinner" *ngIf="isLoading"></div>
+                        </button>
+                    </div>
+
+                    <!-- <div class="text-center">
+                        <button class="order-btn mt-4 mb-4" type="button" (click)="onSubmit()" [disabled]="isLoading">
+                            Order Now <i class="fa-brands fa-whatsapp"></i>
+                        </button>
+                    </div> -->
+
+                    <!-- Addiotional Content -->
+                    <div class="additional-accordion">
+                        <div class="accordion mb-4" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button additional-title" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
+                                        aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                        Terms & Condition
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                                    <div class="accordion-body">
+                                        <p class="additional-des">
+                                            • Order cake melalui Whatsapp Kilo Kalori (+62 821-3879-8197) minimal
+                                            H-2<br>
+                                            • Pengiriman whole cake hanya dengan Grab Car / Go car<br>
+                                            • Self pick up available pada alamat yang akan diberikan setelah fix
+                                            order<br>
+                                            • Custom cake tidak bisa sama 100% dengan referensi<br>
+                                            • Payment hanya melalui bank transfer BCA
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button additional-title collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
+                                        aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                        Accessoris
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <div class="product-table">
+                                            <table class="table accessoris-table mt-4">
+                                                <tbody>
+                                                    <tr class="tr-bot-border">
+                                                        <td class="text-start">Toppler Kertas</td>
+                                                        <td class="text-end">Rp 20K</td>
+                                                    </tr>
+                                                    <tr class="tr-bot-border">
+                                                        <td class="text-start">Arkilik</td>
+                                                        <td class="text-end">Rp 65K</td>
+                                                    </tr>
+                                                    <tr class="tr-bot-border">
+                                                        <td class="text-start">Greetings Card</td>
+                                                        <td class="text-end">Rp 5K</td>
+                                                    </tr>
+                                                    <tr class="tr-bot-border">
+                                                        <td class="text-start">Korean Candle / pc</td>
+                                                        <td class="text-end">Rp 2K</td>
+                                                    </tr>
+                                                    <tr class="tr-bot-border">
+                                                        <td class="text-start">Korean Candle / box</td>
+                                                        <td class="text-end">Rp 15K</td>
+                                                    </tr>
+                                                    <tr class="tr-bot-border">
+                                                        <td class="text-start">Rainbow Candle</td>
+                                                        <td class="text-end">Rp 20K</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Additional Content End -->
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="row row-border">
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-4 mb-4">
+                <div class="gallery-accordion">
+                    <div class="accordion mb-4" id="galleryAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button additional-title text-center" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#gallery-collapseOne" aria-expanded="true"
+                                    aria-controls="gallery-collapseOne">
+                                    {{category}} Galleries
+                                </button>
+
+                            </h2>
+                            <div id="gallery-collapseOne" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <div class="d-flex justify-content-center align-content-center">
+                                        <div class="row gallery-row g-0">
+                                            <!-- Loop through images dynamically based on cakes array -->
+                                            <div *ngFor="let cake of theCakes; let i = index" class="col-md-4 col-6">
+                                                <img [src]="cake.imageUrl" alt="Cake Image {{i + 1}}"
+                                                    class="gallery-img" data-bs-toggle="modal"
+                                                    data-bs-target="#imageModal" (click)="setModalImage(cake.imageUrl)">
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="imageModal" tabindex="-1"
+                                            aria-labelledby="imageModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-body gallery-modal">
+                                                        <img id="modalImage" src={{selectedImage}}
+                                                            class="img-fluid modal-img" alt="Modal Image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="container">
+        <div class="row bento-content row-border" *ngIf="category">
+            <div class="col-md-3 res-content" style="padding: 25px 15px 0px 15px;">
+                <a routerLink="/" class="none-decoration">
+                    <h1 class="content-title">{{ category === 'Whole Cake' ? 'Bento Cake' : 'Whole Cake' }}</h1>
+                    <div class="title-underline"></div>
+                </a>
+                <p class="content-des mt-2">
+                    {{ category === 'Whole Cake' ? 'Sponge cake vanilla with whipped fresh cream' : 'Delicious Whole
+                    Cakes' }}
+                </p>
+                <p class="content-des">Start from <br>
+                    <span class="content-price">{{ category === 'Whole Cake' ? 'Rp 55.000' : 'Rp 160.000' }}</span>
+                </p>
+            </div>
+
+            <div class="col-md-9" style="padding: 15px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="contentCarousel" class="carousel slide">
+                            <div class="carousel-inner">
+                                <!-- Carousel Item 1 - First 3 Cakes -->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div *ngFor="let cake of cakes.slice(0, 2); let i = index"
+                                            class="col-lg-4 col-md-6 col-6 p-2">
+                                            <div class="content-card">
+                                                <a [routerLink]="'/cake-products-page/' + cake.category + '/' + cake._id"
+                                                    class="none-decoration" (click)="reloadPage($event)">
+                                                    <img [src]="cake.imageUrl" class="card-img-top product-carousel-img"
+                                                        alt="Cake Image {{i + 1}}">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="cakes.length > 2" class="col-lg-4 col-md-6 d-none d-lg-block p-2">
+                                            <div class="content-card">
+                                                <a [routerLink]="'/cake-products-page/' + cakes[2].category + '/' + cakes[2]._id"
+                                                    class="none-decoration" (click)="reloadPage($event)">
+                                                    <img [src]="cakes[2].imageUrl"
+                                                        class="card-img-top product-carousel-img" alt="Cake Image 3">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Carousel Item 2 - Cakes starting from the 4th one -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div *ngFor="let cake of cakes.slice(3, 5); let i = index"
+                                            class="col-lg-4 col-md-6 col-6 p-2">
+                                            <div class="content-card">
+                                                <a [href]="'/cake-products-page/' + cake.category + '/' + cake._id"
+                                                    class="none-decoration">
+                                                    <img [src]="cake.imageUrl" class="card-img-top product-carousel-img"
+                                                        alt="Cake Image {{i + 4}}">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="cakes.length > 5" class="col-lg-4 col-md-6 d-none d-lg-block p-2">
+                                            <div class="content-card">
+                                                <a [href]="'/cake-products-page/' + cakes[5].category + '/' + cakes[5]._id"
+                                                    class="none-decoration">
+                                                    <img [src]="cakes[5].imageUrl"
+                                                        class="card-img-top product-carousel-img" alt="Cake Image 6">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button class="custom-carousel-control custom-prev mb-1" type="button"
+                            data-bs-target="#contentCarousel" data-bs-slide="prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="custom-carousel-control custom-next ms-1" type="button"
+                            data-bs-target="#contentCarousel" data-bs-slide="next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="floating-chat">
+    <!-- Chatbox -->
+    <div class="chatbox card shadow-sm" [ngClass]="{'show': isChatOpen}">
+        <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="../../assets/images/FONT LOGO.png" alt="Lisa" class="chat-avatar me-2">
+                <div>
+                    <h6 class="mb-0">Kilo Kalori</h6>
+                    <small>Replies within 1 day</small>
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white" (click)="toggleChat()"></button>
+        </div>
+        <div class="card-body">
+            <p class="mb-0">Click the button below to contact me if you have any questions.</p>
+        </div>
+        <div class="card-footer text-center">
+            <a [href]="'https://wa.me/' + whatsappNumber" target="_blank" class="btn btn-success w-100">
+                <i class="fab fa-whatsapp"></i> Start chat
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button class="btn btn-success rounded-circle p-3 shadow-lg chat-button" (click)="toggleChat()">
+        <i class="fab fa-whatsapp fs-3"></i>
+    </button>
+</div>
+<div class="floating-chat">
+    <!-- Chatbox -->
+    <div class="chatbox card shadow-sm" [ngClass]="{'show': isChatOpen}">
+        <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="../../assets/images/FONT LOGO.png" alt="Lisa" class="chat-avatar me-2">
+                <div>
+                    <h6 class="mb-0">Kilo Kalori</h6>
+                    <small>Replies within 1 day</small>
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white" (click)="toggleChat()"></button>
+        </div>
+        <div class="card-body">
+            <p class="mb-0">Click the button below to contact me if you have any questions.</p>
+        </div>
+        <div class="card-footer text-center">
+            <a [href]="'https://wa.me/' + whatsappNumber" target="_blank" class="btn btn-success w-100">
+                <i class="fab fa-whatsapp"></i> Start chat
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button class="btn btn-success rounded-circle p-3 shadow-lg chat-button" (click)="toggleChat()">
+        <i class="fab fa-whatsapp fs-3"></i>
+    </button>
+</div>
