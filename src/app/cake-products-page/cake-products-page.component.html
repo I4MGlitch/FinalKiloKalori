@@ -305,17 +305,22 @@
                                 <!-- Carousel Item 1 - First 3 Cakes -->
                                 <div class="carousel-item active">
                                     <div class="row">
-                                        <div *ngFor="let cake of cakes.slice(0, 2); let i = index" class="col-lg-4 col-md-6 col-6 p-2">
+                                        <div *ngFor="let cake of cakes.slice(0, 2); let i = index"
+                                            class="col-lg-4 col-md-6 col-6 p-2">
                                             <div class="content-card">
-                                                <a [href]="'/cake-products-page/' + cake.category + '/' + cake._id" class="none-decoration">
-                                                    <img [src]="cake.imageUrl" class="card-img-top product-carousel-img" alt="Cake Image {{i + 1}}">
+                                                <a [routerLink]="['/cake-products-page', cake.category, cake._id]"
+                                                    class="none-decoration">
+                                                    <img [src]="cake.imageUrl" class="card-img-top product-carousel-img"
+                                                        alt="Cake Image {{i + 1}}">
                                                 </a>
                                             </div>
                                         </div>
                                         <div *ngIf="cakes.length > 2" class="col-lg-4 col-md-6 d-none d-lg-block p-2">
                                             <div class="content-card">
-                                                <a [href]="'/cake-products-page/' + cakes[2].category + '/' + cakes[2]._id" class="none-decoration">
-                                                    <img [src]="cakes[2].imageUrl" class="card-img-top product-carousel-img" alt="Cake Image 3">
+                                                <a [routerLink]="['/cake-products-page', cakes[2].category, cakes[2]._id]"
+                                                    class="none-decoration">
+                                                    <img [src]="cakes[2].imageUrl"
+                                                        class="card-img-top product-carousel-img" alt="Cake Image 3">
                                                 </a>
                                             </div>
                                         </div>
@@ -328,7 +333,7 @@
                                         <div *ngFor="let cake of cakes.slice(3, 5); let i = index"
                                             class="col-lg-4 col-md-6 col-6 p-2">
                                             <div class="content-card">
-                                                <a [href]="'/cake-products-page/' + cake.category + '/' + cake._id"
+                                                <a [routerLink]="['/cake-products-page', cake.category, cake._id]"
                                                     class="none-decoration">
                                                     <img [src]="cake.imageUrl" class="card-img-top product-carousel-img"
                                                         alt="Cake Image {{i + 4}}">
@@ -337,7 +342,7 @@
                                         </div>
                                         <div *ngIf="cakes.length > 5" class="col-lg-4 col-md-6 d-none d-lg-block p-2">
                                             <div class="content-card">
-                                                <a [href]="'/cake-products-page/' + cakes[5].category + '/' + cakes[5]._id"
+                                                <a [routerLink]="['/cake-products-page', cakes[5].category, cakes[5]._id]"
                                                     class="none-decoration">
                                                     <img [src]="cakes[5].imageUrl"
                                                         class="card-img-top product-carousel-img" alt="Cake Image 6">
@@ -346,6 +351,7 @@
                                         </div>
                                     </div>
                                 </div>
+
 
                             </div>
                         </div>
