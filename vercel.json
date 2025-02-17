@@ -23,11 +23,6 @@
       "destination": "/dist/kilokalori/index.html"
     }
   ],
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/home-page",
-      "permanent": true
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
