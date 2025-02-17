@@ -471,7 +471,7 @@ app.delete('/tiramisu/:id', async (req, res) => {
   }
 });
 
-app.get('/website', async (req, res) => {
+app.get('/api/website', async (req, res) => {
   try {
     const newwebsite = await website.findOne();
     res.json(newwebsite);
