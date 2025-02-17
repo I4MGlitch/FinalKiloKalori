@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BentocakeService {
 
-  private baseUrl = 'http://kilokalori.vercel.app';
+  private baseUrl = 'https://kilokalori.vercel.app';
   //private baseUrl = 'http://localhost:5000'
   
   constructor(private  http: HttpClient) {}
