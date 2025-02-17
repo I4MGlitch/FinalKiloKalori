@@ -13,14 +13,14 @@
       }
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "destination": "/backend/index.js"
+      "src": "/api/(.*)",
+      "dest": "/backend/index.js"
     },
     {
-      "source": "/(.*)",
-      "destination": "/dist/kilokalori/index.html"
+      "src": "/(.*)",
+      "dest": "/dist/kilokalori/index.html"
     }
   ],
   "cleanUrls": true,
