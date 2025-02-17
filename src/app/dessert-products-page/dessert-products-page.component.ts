@@ -39,10 +39,10 @@ export class DessertProductsPageComponent {
     // Subscribe to route params
     this.route.params.subscribe(params => {
       this.category = params['category'];
+      // Fetch images and filter cakes based on the default flavour
+      this.fetchImages();
     });
 
-    // Fetch images and filter cakes based on the default flavour
-    this.fetchImages();
     this.fetchOppositeImages()
     this.fetchWebsite()
   }
