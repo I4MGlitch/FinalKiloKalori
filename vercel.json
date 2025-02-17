@@ -18,9 +18,9 @@
       "src": "/api/(.*)",
       "dest": "/backend/index.js"
     },
-    {
+    { 
       "src": "/(.*)",
-      "dest": "/dist/kilokalori/index.html"
+      "dest": "/" 
     }
   ]
 }
