@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class WebsiteService {
 
   //private baseUrl = 'http://localhost:5000'
-  private baseUrl = 'https://kilokalori.vercel.app';
+  private baseUrl = 'https://kilokalori.vercel.app/api';
   
   constructor(private  http: HttpClient) {}
 

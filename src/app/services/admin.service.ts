@@ -8,7 +8,7 @@ import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 export class AdminService {
 
   // private baseUrl = 'http://localhost:5000';
-  private baseUrl = 'https://kilokalori.vercel.app';
+  private baseUrl = 'https://kilokalori.vercel.app/api';
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
 
   constructor(private http: HttpClient) {}
